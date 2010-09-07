@@ -1,0 +1,47 @@
+<div id="subheader">
+  <h1><b>New Computer</b></h1>
+</div>
+
+<% form_for(@computer, :onsubmit => "check_form_fields()") do |f| %>
+  <%= f.hidden_field :mac_addr, :value => @mac_address %>
+  <ol class="details">
+    <li>
+      <%= f.label :cn, "Name:" %>
+      <%= f.text_field :cn, :class => 'empty' %>
+    </li>
+    <li>
+      <%= f.label :hostname, "Hostname:" %>
+      <%= f.text_field :hostname, :class => 'empty' %>
+    </li>
+    <li>
+      <%= f.label :ard_field_1, "ARD Field 1:" %>
+      <%= f.text_field :ard_field_1, :class => 'empty' %>
+    </li>
+    <li>
+      <%= f.label :ard_field_2, "ARD Field 2:" %>
+      <%= f.text_field :ard_field_2, :class => 'empty' %>
+    </li>
+    <li>
+      <%= f.label :ard_field_3, "ARD Field 3:" %>
+      <%= f.text_field :ard_field_3, :class => 'empty' %>
+    </li>
+    <li>
+      <%= f.label :ard_field_4, "ARD Field 4:" %>
+      <%= f.text_field :ard_field_4, :class => 'empty' %>
+    </li>
+    <li>
+      <%= f.label :group, "Group:" %>
+      <%= f.select :group, Group.all.map { |g| g.id }, :selected => Group.default %>
+    </li>
+    <li>
+      <%= f.submit 'Create', :disabled => true %>
+    </li>
+    <li>
+      <%= link_to 'Back', root_path %>
+    </li>
+  </ol>
+<% end %>
+
+<% ["computer_cn", "computer_hostname", "computer_ard_field_1", "computer_ard_field_2", "computer_ard_field_3", "computer_ard_field_4"].each do |field| %>
+  <%= observe_field(field, :frequency => 0.5, :function => "update_form_fields()") %>
+<% end %>

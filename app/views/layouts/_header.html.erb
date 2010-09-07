@@ -1,0 +1,63 @@
+<div id="header">
+  <div id="header-wrap">
+    <%= image_tag 'logo.gif', :id => :logo %>
+
+    <span id="cancel"></span>
+    <%= text_field_tag :search %>
+
+    <%= observe_field( :search,
+	:url => { :action => :search },
+        :frequency => 0.5,
+        :update => :content,
+        :with => 'search' ) %>
+
+    <script type="text/javascript">
+      $('search').observe('focus', respondToOnFocus);
+      function respondToOnFocus(event) {
+        var element = Event.element(event);
+        if (element.value == "") {
+          element.addClassName("clear");
+        }
+      }
+
+      $('search').observe('blur', respondToBlur);
+      function respondToBlur(event) {
+        var element = Event.element(event);
+        if (element.value == "") {
+          element.removeClassName("clear");
+        }
+      }
+    
+      $('search').observe('keyup', respondToChange);
+      function respondToChange(event) {
+        var element = Event.element(event);
+        if (element.value != "") {
+          if (! $('cancel').hasClassName('text')) {
+            $('cancel').addClassName('text');
+          }
+        }
+        else {
+          $('cancel').removeClassName('text');
+        }
+      }
+
+      $('cancel').observe('mousedown', respondToMouseDown);
+      function respondToMouseDown(event) {
+        var element = Event.element(event);
+        if ((element.value != "") && (element.value != undefined)) {
+          element.removeClassName('text');
+          element.addClassName('clicked');
+        }
+      }
+      $('cancel').observe('mouseup', respondToMouseUp);
+      function respondToMouseUp(event) {
+        var element = Event.element(event);
+        element.removeClassName('text');
+        element.removeClassName('clicked');
+        $('search').value = "";
+        $('search').removeClassName("clear");
+        $('search').focus();
+      }
+    </script>
+  </div>
+</div>

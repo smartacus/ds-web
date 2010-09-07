@@ -1,0 +1,15 @@
+<li>
+  <span class="mac-addr"><%=h computer.mac_addr %></span>
+  <span class="cn"><%=h computer.cn %></span>
+  <span class="hostname"><%=h computer.hostname %></span>
+  <span class="ard-field-1"><%=h computer.ard_field_1 %></span>
+  <span class="ard-field-2"><%=h computer.ard_field_2 %></span>
+  <span class="ard-field-2"><%=h computer.ard_field_3 %></span>
+  <span class="ard-field-2"><%=h computer.ard_field_4 %></span>
+  <span class="group"><%=h computer.group %></span>
+  <span class="links clear">
+    <%= link_to_function 'Show', "perform_search('#{computer.mac_addr}')" %>
+    <%= link_to_remote 'Edit', :url => { :action => 'inline_edit', :id => computer.to_param }, :update => 'content' %>
+    <%= link_to 'Delete', computer_path(computer), :confirm => 'Are you sure?', :method => :delete %>
+  </span>
+</li>

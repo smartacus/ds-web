@@ -1,0 +1,9 @@
+config/ds-database.yml
+.DS_Store
+*~
+*.cache
+*.log
+*.pid
+tmp/**/*
+db/*.sqlite3
+

@@ -1,0 +1,18 @@
+<div id="subheader">
+  <h1><b><%= @computer.cn %></b> (<%= @computer.mac_addr %>)</h1>
+</div>
+
+<ol class="details">
+  <li><b>Hostname:</b><%=h @computer.hostname %></li>
+  <li><b>ARD Field 1:</b><%=h @computer.ard_field_1 %></li>
+  <li><b>ARD Field 2:</b><%=h @computer.ard_field_2 %></li>
+  <li><b>ARD Field 3:</b><%=h @computer.ard_field_3 %></li>
+  <li><b>ARD Field 4:</b><%=h @computer.ard_field_4 %></li>
+  <li><b>Group:</b><%=h @computer.group %></li>
+  <li><b>Log:</b></li>
+  <li><div id="log"><%= @computer.log %></div></li>
+  <li>
+    <%= link_to_remote 'Edit', :url => { :action => 'inline_edit', :id => @computer.to_param }, :update => 'content' %> |
+    <%= link_to 'Back', root_url %>
+  </li>
+</ol>

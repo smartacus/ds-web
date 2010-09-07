@@ -1,0 +1,42 @@
+<p>
+  <b>MAC Addess:</b>
+  <%=h @computer.mac_addr %>
+</p>
+
+<p>
+  <b>Name:</b>
+  <%=h @computer.cn %>
+</p>
+
+<p>
+  <b>Hostname:</b>
+  <%=h @computer.hostname %>
+</p>
+
+<p>
+  <b>ARD Field 1:</b>
+  <%=h @computer.ard_field_1 %>
+</p>
+
+<p>
+  <b>ARD Field 2:</b>
+  <%=h @computer.ard_field_2 %>
+</p>
+
+<p>
+  <b>ARD Field 3:</b>
+  <%=h @computer.ard_field_3 %>
+</p>
+
+<p>
+  <b>ARD Field 4:</b>
+  <%=h @computer.ard_field_4 %>
+</p>
+
+<p>
+  <b>Group:</b>
+  <%=h @computer.group %>
+</p>
+
+<%= link_to 'Edit', edit_computer_path(@computer) %> |
+<%= link_to 'Back', computers_path %>

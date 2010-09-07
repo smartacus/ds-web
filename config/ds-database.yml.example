@@ -1,0 +1,14 @@
+development:
+  url: 'http://localhost:60080'
+  username: 'dsadmin'
+  password: 'password'
+
+test:
+  url: 'http://localhost:60080'
+  username: 'dsadmin'
+  password: 'password'
+
+production:
+  url: 'http://localhost:60080'
+  username: 'dsadmin'
+  password: 'password'

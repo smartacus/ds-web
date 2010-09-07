@@ -1,0 +1,68 @@
+== ds:web
+
+A web application to manage a DeployStudio databse.
+
+== Requirements
+
+=== Mac OS X Developer Tools
+
+The Mac OS X Developer Tools are required to build Phusion Passenger. Download the tools from:
+
+http://developer.apple.com
+
+=== Phusion Passenger
+
+One of the simplest ways to run a Rails application on Mac OS X. Follow these steps to install Passenger:
+
+   $ gem install passenger
+   $ passenger-install-apache2-module
+
+=== PassengerPane
+
+Download and install PassengerPane from:
+
+http://github.com/alloy/passengerpane
+
+=== Ruby on Rails
+
+Since ds:web is a Ruby on Rails application, the Rails framework must be installed:
+
+   $ gem install rails
+
+=== Git
+
+Download and install Git from:
+
+http://code.google.com/p/git-osx-installer/downloads/list?can=3
+
+== Installation
+
+Download ds:web and its dependencies:
+
+   $ cd /Library/WebServer/Documents
+   $ git clone http://github.com/smartacus/ds-web.git
+   $ cd ds-web
+   $ rake db:create:all
+   $ rake gems:install
+
+Point the application to the DeployStudio server:
+
+   $ cd config
+   $ mv ds-database.yml.example ds-database.yml
+
+Edit the ds-database.yml file to point to your DeployStudio server.
+
+Configure PassengerPane for this application:
+
+1. Open Passenger in System Preferences.
+2. Add a Rails application.
+3. Browse to /Library/WebServer/Documents/ds-web and click Open.
+4. Select the Production radio button.
+5. Click Apply.
+
+Start Apache
+
+1. Open Sharing in System Preferences.
+2. Check the Web Sharing box.
+
+Open a browser to the address listed in the Passenger preference pane (defaults to ds-web.local) or one of the configured aliases. The computers in the DeployStudio database should appear.

@@ -1,0 +1,42 @@
+<h1>Editing computer</h1>
+
+<% form_for(@computer) do |f| %>
+  <p>
+    <%= f.label :mac_addr %><br />
+    <%= f.text_field :mac_addr %>
+  </p>
+  <p>
+    <%= f.label :cn %><br />
+    <%= f.text_field :cn %>
+  </p>
+  <p>
+    <%= f.label :hostname %><br />
+    <%= f.text_field :hostname %>
+  </p>
+  <p>
+    <%= f.label :ard_field_1 %><br />
+    <%= f.text_field :ard_field_1 %>
+  </p>
+  <p>
+    <%= f.label :ard_field_2 %><br />
+    <%= f.text_field :ard_field_2 %>
+  </p>
+  <p>
+    <%= f.label :ard_field_3 %><br />
+    <%= f.text_field :ard_field_3 %>
+  </p>
+  <p>
+    <%= f.label :ard_field_4 %><br />
+    <%= f.text_field :ard_field_4 %>
+  </p>
+  <p>
+    <%= f.label :group %><br />
+    <%= f.select :group, Group.all.map { |g| g.id } %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @computer %> |
+<%= link_to 'Back', computers_path %>
